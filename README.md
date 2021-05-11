@@ -1,3 +1,4 @@
+![alt text](./images/github_profile.jpeg)
 <h1 align="center">Hi 👋, I'm Sarthak Shrivastava</h1>
 <h3 align="center">A passionate full stack developer and youtuber from India</h3>
 
