@@ -12,12 +12,6 @@ def update():
             filedata = filedata.replace('{{VIDEO_1_LINK}}', yt['items'][0]['id']['videoId']).replace(
                 '{{VIDEO_2_LINK}}', yt['items'][1]['id']['videoId']).replace('{{VIDEO_3_LINK}}', yt['items'][2]['id']['videoId'])
 
-            filedata = filedata.replace('{{VIDEO_1_TITLE}}', yt['items'][0]['snippet']['title']).replace(
-                '{{VIDEO_2_TITLE}}', yt['items'][1]['snippet']['title']).replace('{{VIDEO_3_TITLE}}', yt['items'][2]['snippet']['title'])
-
-            filedata = filedata.replace('{{VIDEO_1_TIME}}', formatTime(yt['items'][0])).replace(
-                '{{VIDEO_2_TIME}}', formatTime(yt['items'][1])).replace('{{VIDEO_3_TIME}}', formatTime(yt['items'][2]))
-
             filedata = filedata.replace(
                 '{{LAST_UPDATED_AT}}', datetime.now().strftime("%d %b %Y %H:%M"))
 
