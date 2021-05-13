@@ -24,17 +24,11 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Get data from Youtube
+        run: data=$(curl https://www.googleapis.com/youtube/v3/search?key=${{secrets.YOUTUBE_API_KEY}}&channelId=${{secrets.CHANNEL_ID}}&part=id&order=date&maxResults=3)
 
-      - name: Make Request
-        id: myRequest
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "https://www.googleapis.com/youtube/v3/search?key=${{secrets.YOUTUBE_API_KEY}}&channelId=${{secrets.CHANNEL_ID}}&part=id&order=date&maxResults=3"
-          method: "GET"
-      - name: Show Response
-        run: python update/main.py ${{ steps.myRequest.outputs.response }}
+      - name: Update Readme file
+        run: python update/main.py $data
 
       - name: Github Commit
         run: touch test.md && git config --global user.name "Sarthaksavvy" && git config --global user.email sarthak@bitfumes.com && git add . && git commit -m "testing" && git push
