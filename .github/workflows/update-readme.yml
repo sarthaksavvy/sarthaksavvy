@@ -34,7 +34,7 @@ jobs:
           url: "https://www.googleapis.com/youtube/v3/search?key=${{secrets.YOUTUBE_API_KEY}}&channelId=${{secrets.CHANNEL_ID}}&part=id&order=date&maxResults=3"
           method: "GET"
       - name: Show Response
-        run: py update/main.py ${{ steps.myRequest.outputs.response }}
+        run: python update/main.py ${{ steps.myRequest.outputs.response }}
 
       - name: Github Commit
         run: touch test.md && git config --global user.name "Sarthaksavvy" && git config --global user.email sarthak@bitfumes.com && git add . && git commit -m "testing" && git push
