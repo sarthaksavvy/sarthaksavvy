@@ -2,11 +2,11 @@
 
 name: Update Readme
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 14 * * *'
+    - cron: "0 14 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,12 +26,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-        
+
       - name: Make Request
         id: myRequest
         uses: fjogeleit/http-request-action@master
         with:
-          url: 'https://www.googleapis.com/youtube/v3/search?key=${{secrets.YOUTUBE_API_KEY}}&channelId=${{secrets.CHANNEL_ID}}&part=id&order=date&maxResults=3'
-          method: 'GET'
+          url: "https://www.googleapis.com/youtube/v3/search?key=${{secrets.YOUTUBE_API_KEY}}&channelId=${{secrets.CHANNEL_ID}}&part=id&order=date&maxResults=3"
+          method: "GET"
       - name: Show Response
-        run: echo ${{ steps.myRequest.outputs.response }}
+        run: py update.py ${{ steps.myRequest.outputs.response }}
