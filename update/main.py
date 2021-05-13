@@ -1,4 +1,4 @@
-import json
+
 import sys
 from datetime import datetime
 
@@ -8,7 +8,7 @@ def update():
         filedata = file.read()
 
         if(len(sys.argv) > 1):
-            yt = json.loads(sys.argv[1])
+            yt = eval(sys.argv[1])
             filedata = filedata.replace('{{VIDEO_1_LINK}}', yt['items'][0]['id']['videoId']).replace(
                 '{{VIDEO_2_LINK}}', yt['items'][1]['id']['videoId']).replace('{{VIDEO_3_LINK}}', yt['items'][2]['id']['videoId'])
 
