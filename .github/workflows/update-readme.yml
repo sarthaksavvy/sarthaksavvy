@@ -27,7 +27,8 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
         
-      - name: Deploy Stage
+      - name: Make Request
+        id: myRequest
         uses: fjogeleit/http-request-action@master
         with:
           url: 'https://www.googleapis.com/youtube/v3/search?key=${{secrets.YOUTUBE_API_KEY}}&channelId=${{secrets.CHANNEL_ID}}&part=id&order=date&maxResults=10'
