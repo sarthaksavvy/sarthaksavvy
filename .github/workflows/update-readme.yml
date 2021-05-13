@@ -27,7 +27,7 @@ jobs:
           python-version: "3.9"
           architecture: "x64"
 
-       - name: Make Request
+      - name: Make Request
         id: myRequest
         uses: fjogeleit/http-request-action@master
         with:
