@@ -23,12 +23,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Get data from Youtube
-        run: data=$(curl https://www.googleapis.com/youtube/v3/search?key=${{secrets.YOUTUBE_API_KEY}}&channelId=${{secrets.CHANNEL_ID}}&part=id&order=date&maxResults=3)
-
       - name: Update Readme file
-        run: python update/main.py $data
+        run: data=$(curl https://www.googleapis.com/youtube/v3/search?key=${{secrets.YOUTUBE_API_KEY}}&channelId=${{secrets.CHANNEL_ID}}&part=id&order=date&maxResults=3) && python update/main.py $data
 
       - name: Github Commit
         run: git config --global user.name "Sarthaksavvy" && git config --global user.email sarthak@bitfumes.com && git add . && git commit -m "Updated Readme for youtube" && git push
