@@ -1,41 +1,23 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Update Readme
+name: Stratus Test
 
 # Controls when the action will run.
-on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron: "0 14 * * *"
-
-  # Allows you to run this workflow manually from the Actions tab
+on: 
   workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  Reading:
-    # The type of runner that the job will run on
+  printInputs:
     runs-on: ubuntu-latest
-
-    env:
-      YOUTUBE_API_KEY: ${{secrets.YOUTUBE_API_KEY}}
-      CHANNEL_ID: ${{secrets.CHANNEL_ID}}
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: "3.9"
-          architecture: "x64"
-
-      - name: Install Dependencies
-        run: pip install requests
-
-      - name: Update Readme
-        run: python3 update/main.py
-
-      - name: Github Commit
-        run: git config --global user.name "Sarthaksavvy" && git config --global user.email sarthak@bitfumes.com && git add . && git commit -m "Updated Readme for youtube" && git push
+      - name: Run
+        run: |
+          echo "Log level: ${{ github.event.inputs.logLevel }}"
+          echo "Tags: ${{ github.event.inputs.tags }}"
