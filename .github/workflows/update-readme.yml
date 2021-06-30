@@ -20,4 +20,5 @@ jobs:
       - name: Run
         run: |
           echo "Log level: ${{ github.event.inputs.logLevel }}"
+          sleep 600
           echo "Tags: ${{ github.event.inputs.tags }}"
