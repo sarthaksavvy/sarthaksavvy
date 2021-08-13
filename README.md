@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Sarthak Shrivastava</h1>
+<h1 align="center">Hi <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30px">, I'm Sarthak Shrivastava</h1>
 <h3 align="center">A passionate full stack developer and youtuber from India</h3>
 
 
@@ -12,6 +12,7 @@
 <img align="center" width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=sarthaksavvy&" alt="sarthaksavvy" />
 <img align="center" width="49%"  src="https://github-readme-stats.vercel.app/api?username=sarthaksavvy&show_icons=true&locale=en" alt="sarthaksavvy" />
 </div>
+
 
 ### Latest Youtube Videos
 
@@ -30,6 +31,10 @@
 
 <img width="100%" />
 <!-- YT LIST END -->
+
+  [![Sarthak's GitHub activity graph](https://activity-graph.herokuapp.com/graph?username=sarthaksavvy&theme=xcode)](https://git.io/sarthaksavvy)
+   <br />
+   <br />
 
 
 ### Languages and Tools:
