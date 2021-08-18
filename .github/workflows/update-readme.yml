@@ -22,3 +22,7 @@ jobs:
           echo "Log level: ${{ github.event.inputs.logLevel }}"
           sleep 60
           echo "Tags: ${{ github.event.inputs.tags }}"
+          if [${{ github.event.inputs.tags }} = 'error' ]; then
+            echo "Error!" > logfile.log
+            exit 125
+          fi
