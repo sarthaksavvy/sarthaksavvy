@@ -18,14 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run With Error
-        if: ${{ github.event.inputs.tags }} == 'error'
+        if: ${{ github.event.inputs.tags == 'error'}}
         run: |
           echo "Error!" > logfile.log
           sleep 60
           exit 125
         
       - name: Run without error
-        if: ${{ github.event.inputs.tags }} != 'error'
+        if: ${{ github.event.inputs.tags != 'error' }}
         run: |
           echo "Log level: ${{ github.event.inputs.logLevel }}"
           echo "Tags: ${{ github.event.inputs.tags }}"
