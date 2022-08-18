@@ -28,4 +28,5 @@ jobs:
         if: ${{ github.event.inputs.tags != 'error' }}
         run: |
           echo "Log level: ${{ github.event.inputs.logLevel }}"
+          sleep 60
           echo "Tags: ${{ github.event.inputs.tags }}"
